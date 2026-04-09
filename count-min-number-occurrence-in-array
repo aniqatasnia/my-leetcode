@@ -1,0 +1,15 @@
+'''
+You are given an array of integers. Your task is to write a function in Python that returns the number of times the smallest element appears in the array.
+Please note that built-in methods such as min() or count() should not be used in this task. Your goal is to accomplish this task by iterating over the array elements manually. Try to solve the task by doing just a single list traversal.
+'''
+def count_min(numbers):
+    count = 0
+    min = numbers[0] if numbers else None
+    for n in numbers:
+        if n == min:
+            count += 1
+        if n < min:
+            min = n
+            count = 1
+            
+    return count
