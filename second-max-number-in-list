@@ -1,0 +1,37 @@
+'''
+You are given a list of integers. Your task is to write a Python function to find the second-largest number among these integers. If the list has fewer than two unique numbers, return None.
+
+You are not allowed to use any built-in Python functions or methods such as sorted(), max(), or sort(). Instead, you should implement the task using basic list operations.
+'''
+from typing import List, Optional
+
+def second_max(nums: List[int]) -> Optional[int]:
+    if len(nums) <= 1:
+        return None
+    
+    i = 1
+    if nums[0] > nums[i]:
+        p = 0
+        q = i
+    else:
+        p = i
+        q = 0
+    i += 1
+    while i < len(nums):
+        if nums[i] >= nums[q]:
+            if nums[i] >= nums[p]:
+                if nums[i] != nums[p]:
+                    q = p
+                    p = i
+                else:
+                    p = i
+            else:
+                q = i
+        elif nums[p] == nums[q]:
+            q = i
+        i += 1
+        
+    if nums[p] == nums[q]:
+        return None
+    else:
+        return nums[q]
