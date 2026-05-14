@@ -1,0 +1,25 @@
+class Solution:
+    def minToMaxHeapPop(self, heap):
+        val = heapq.heappop(heap)
+        
+        return abs(val)
+    def minToMaxHeapPush(self, heap, val):
+        v = -val
+        heapq.heappush(heap, v)
+
+        return
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        stones = [-s for s in stones]
+        heapq.heapify(stones)
+        while len(stones) > 1:
+            first = self.minToMaxHeapPop(stones)
+            second = self.minToMaxHeapPop(stones)
+            diff = first - second
+
+            if diff > 0:
+                self.minToMaxHeapPush(stones, diff)
+
+        stones.append(0)
+        res = abs(stones[0])
+
+        return res
