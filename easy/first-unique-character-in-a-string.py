@@ -35,4 +35,4 @@ class Solution2:
     # Okay there was another way to do it (with a seen queue at least, but haven't tried pointers yet) but it was effectively the same as the hashmap solution.
     # Wait unless a queue has to be implemented as FIFO, I forgot shoot. 
     # But even then how would you look up/would looking up allow it to be as efficient or more efficient than dictionary hashmap solution?
-    # You could also sort it, and then use a stack/queue, or even two pointers
+    # You could also sort it, and then use a stack/queue, or even two pointers (sorting takes extra time complexity tho, O(nlogn))
